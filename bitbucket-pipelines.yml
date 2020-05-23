@@ -1,0 +1,11 @@
+# image: phpunit/phpunit:5.0.3
+image: madshansen/docker-git-ftp:latest
+
+pipelines:
+    # default:
+    # bookmarks:
+    branches:
+        master:
+            - step:
+                script:
+                - git ftp init -u $FTP_USER -p $FTP_PASSWORD ftp://$FTP_SERVER

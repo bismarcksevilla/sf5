@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<section class="container-fluid">
+    <div class="card border-0">
+        <div class="card-body sombra p-3">
+            <div class="row">
+                <div class="col-md-3 col-lg-2 d-none d-md-block" style="border-right:2px solid silver">
+                    <div class="btn-group-vertica" role="group" aria-label="Basic example">
+                        {{ render(controller( 'App\\Controller\\Base\\DefaultController::menu',{ 'route': route, 'display':'vertical'})) }}
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-10" style="min-height:450px;">
+
+                    {% block titulos %}
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>
+                                    {% block title %}
+                                        {{route is defined ? route|capitalize : ''}}
+                                    {% endblock %}
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="row d-print-none">
+                            <div class="col-6">
+                                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
+                                        {% include "global/head_bar.html.twig" %}
+                                    </div>
+                                    {% block addtoolbar %}{% endblock %}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                {% block bar_btn %}{% endblock %}
+                            </div>
+                        </div>
+                    {% endblock %}
+
+                    {% block panel %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

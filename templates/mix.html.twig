@@ -1,0 +1,48 @@
+{% extends 'app.html.twig' %}
+
+{% block panel %}
+    <div class="row d-print-none">
+        <div class="col-sm-12 card card-body bg-lite pull-rigth sombra border-lite">
+            {{ form_start(form) }}
+                {% block cont_form %}{% endblock %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="btn-group btn-group-sm mt-4" role="group">
+                            {% block add_btn_form %}{% endblock %}
+                            <button
+                                class="btn btn-primary text-truncate"
+                                type="submit"
+                            >Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-sm-12 card card-body bg-lite sombra p-0 border-none">
+            {% if pagina|length > 0  %}
+                <div class="table-responsive table-responsive-sm text-truncate">
+                    <table
+                        class="table w-100 d-block d-sm-table"
+                        role="table"
+                    >
+                        <thead class="thead-primary text-truncate">
+                            {% block thead %}{% endblock %}
+                        </thead>
+                        <tbody class="text-truncate">
+                            {% block tbody %}{% endblock %}
+                        </tbody>
+                    </table>
+                </div>
+                {% include "global/paginacion.html.twig"%}
+            {% endif %}
+        </div>
+    </div>
+
+    {% block anexar %}{% endblock %}
+
+{% endblock %}
+
+

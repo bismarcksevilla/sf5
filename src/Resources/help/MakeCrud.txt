@@ -1,0 +1,5 @@
+El <info>%command.name%</info> comando genera un controlador crud con plantillas para la entidad seleccionada.
+
+<info>php %command.full_name% BlogPost</info>
+
+Si falta el argumento, el comando solicitará el nombre de la clase de entidad de forma interactiva.

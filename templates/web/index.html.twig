@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<div class="container h-min">
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{{ url('index') }}">
+                <img
+                    src="{{asset('logo.png')}}"
+                    class="img-fluid"
+                    alt="Logo"
+                >
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

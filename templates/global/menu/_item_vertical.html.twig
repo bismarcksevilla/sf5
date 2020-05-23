@@ -1,0 +1,9 @@
+{% if elemento.route is defined %}
+    <a
+        href="{{url(elemento.route)}}"
+        class="btn-block btn-link text-left btn-sm m-0 rounded-lg my-1 ml-1 pl-{{nivel}}
+        {% if elemento.route == (route ~ "_listar")  or elemento.route == route %} active  disabled text-white bg-warning {% endif %}"
+    >
+        <i class="fa fa-{{elemento.icon}}"></i>  {{elementokey}} <i class="fa fa-arrow-circle-right float-md-right mt-1"></i>
+    </a>
+{% endif %}

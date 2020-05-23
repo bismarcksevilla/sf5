@@ -1,0 +1,2 @@
+forzar composer: 
+COMPOSER_MEMORY_LIMIT=-1 composer install -vvv --ignore-platform-reqs         

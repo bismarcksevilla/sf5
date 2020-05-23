@@ -1,0 +1,17 @@
+{% for elementokey, elemento in menu %}
+
+    {% if (elemento.role is defined and is_granted(elemento.role) ) or elemento.role is not defined %}
+
+        {% if nivel is not defined %}
+            {% set nivel = 0 %}
+        {% endif %}
+
+        {% if elemento.items is defined and elemento.items|length > 0 %}
+
+            {% include "global/menu/_sub_" ~ display ~ ".html.twig" with {'nivel': nivel + 1} %}
+        {% else %}
+
+            {% include "global/menu/_item_" ~ display ~ ".html.twig" with {'nivel': nivel + 1} %}
+        {% endif %}
+    {% endif %}
+{% endfor %}

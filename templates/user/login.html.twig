@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">    
+            
+            <form method="post" class="card bg-transparente sombra mx-auto mt-5" style="max-width: 300px;">
+                <div class="card-body m-0" >
+
+
+                    <h1 class="h1 font-weight-normal">Ingreso</h1>
+
+                    {% if error %}
+                        <div class="alert alert-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                
+
+                    <div class="form-group mb-3">
+                        <label for="inputEmail">Correo</label>
+                        <input 
+                            type="email" 
+                            value="{{ last_username }}" 
+                            name="email"
+                            class="form-control form-control-lg" 
+                            id="inputEmail" 
+                            aria-describedby="emailHelp" 
+                            placeholder="mail@dominio.com"
+                            required 
+                            autofocus
+                        >
+                        <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+
+
+                    <div class="form-group mb-3">
+                        <label for="inputEmail">Contraseña</label>
+                        <input 
+                            type="password" 
+                            value="{{ last_username }}" 
+                            name="password"
+                            class="form-control form-control-lg" 
+                            id="password" 
+                            aria-describedby="password" 
+                            placeholder="******"
+                            required
+                        >
+                        <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+
+                    <input 
+                        type="hidden" 
+                        name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
+                    #}
+
+                    <div class="checkbox mb-1">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Recuerdame
+                        </label>
+                    </div>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+                    
+                    <a class="ml-1 text-muted small" href="{{url('usuario_ayuda')}}"><strong>¿Necesita ayuda para acceder?</strong></a>
+                    <a class="ml-1 text-muted small" href="{{url('usuario_perfil')}}">Registrar</a>
+                </div>
+            </form>   
+        </div>
+    </div>
+</div> 
+
+{% endblock %}

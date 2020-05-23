@@ -1,0 +1,47 @@
+[
+    {
+        "type": "Group",
+        "name": "Entity",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "hzW7pn5i1rJgP8tD",
+        "iconColor": "rgb(255, 0, 255)"
+    },
+    {
+        "type": "Group",
+        "name": "Controller",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "IUuBAiavZqVyM3gs",
+        "iconColor": "rgb(255, 0, 0)"
+    },
+    {
+        "type": "Group",
+        "name": "Form",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Z3RU2hXAgqv0MpiP",
+        "iconColor": "rgb(0, 0, 255)"
+    },
+    {
+        "type": "Group",
+        "name": "Repository",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "lH7GdZ90EDAmSCvU",
+        "iconColor": "rgb(128, 128, 128)"
+    },
+    {
+        "type": "Group",
+        "name": "Template",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "vaS6Xx7MbZE5yh23",
+        "iconColor": "rgb(0, 255, 0)"
+    }
+]

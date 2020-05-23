@@ -1,0 +1,10 @@
+ <li class="dropdown-submenu">
+    <a 
+        class="dropdown-item dropdown-toggle py-2"
+        role="button" 
+        data-toggle="dropdown" 
+    ><i class="fa fa-{{elemento.icon}}"></i> {{elementokey|replace({'_':' '})}}</a>
+    <ul class="dropdown-menu p-0 m-0">
+        {% include "global/menu/desplegar_elemento.html.twig" with {'menu': elemento.items} %}
+    </ul> 
+</li> 

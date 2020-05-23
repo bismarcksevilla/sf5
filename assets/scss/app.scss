@@ -1,0 +1,117 @@
+@import "variables.scss";
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+.tr_cat_1{
+    background-image: url('/img/ui/tr_cat_1.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.tr_cat_2{
+    background-image: url('/img/ui/tr_cat_2.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.tr_cat_3{
+    background-image: url('/img/ui/tr_cat_3.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.tr_cat_4{
+    background-image: url('/img/ui/tr_cat_4.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.tr_cat_5{
+    background-image: url('/img/ui/tr_cat_5.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+// .list-catalogo{border: none; border-bottom: 1px dotted silver; margin:0px;}
+.tab-1:before{margin-left:4px; content:''}
+.tab-2:before{margin-left:35px; content:'';}
+.tab-3:before{margin-left:65px; content:''}
+.tab-4:before{margin-left:95px; content:''}
+.tab-5:before{margin-left:130px; content:''}
+
+.input-muted{
+    border: none;
+    width: 100%;
+}
+
+
+
+a{
+    cursor: pointer;
+}
+/* # # # # # */
+.container.h-min{
+    min-height: 250px;
+}
+// TAGS
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.bg-transparente{
+    background-color: rgba(254, 254, 254, 0.7);
+}
+
+.tachado{ text-decoration:line-through;}
+.sombra{
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.64);
+    box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.64);
+}
+
+tr.sombrain:hover{
+    box-shadow: inset 0 0 10px 0 #aaa;
+}
+
+.card-body.sombrain:hover{
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.64);
+    box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.64);
+}
+
+.abrir{
+    cursor: pointer;
+}
+
+.mosaico-x{
+    background-image: url('/img/ui/ap-mosaico-x.png');
+    background-position: top left;
+    background-repeat:repeat-x;
+    background-size: 100px;
+}
+
+.badge-id{
+    font-size:11px;
+    position:relative;
+    top:-15px;
+}
+/**
+ * NAV
+ */
+.dropdown-submenu {
+    position: relative;
+  }
+
+  .dropdown-submenu>.dropdown-menu {
+      width: 100%;
+    top: 0;
+    left: -100%;
+  }
+
+
+/*
+ * Correcciones Tablas
+ */
+ th a{
+     color:white;
+ }
+
+ th .desc,
+ th .asc,{
+     color:yellow;
+ }

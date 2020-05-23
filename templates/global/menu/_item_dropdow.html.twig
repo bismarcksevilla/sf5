@@ -1,0 +1,9 @@
+{% if elemento.route is defined %}
+    <li class="m-0">
+        <a
+            class="dropdown-item  py-2
+            {% if elemento.menu == route %} active  disabled bg-silver{% endif %}"
+            href="{{url(elemento.route)}}"
+        ><i class="fa fa-{{elemento.icon}}"></i> {{elementokey}}</a>
+    </li>
+{% endif %}

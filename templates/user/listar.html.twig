@@ -1,0 +1,91 @@
+{% extends 'listar.html.twig' %}
+
+{% block title %}Administrar Usuarios{% endblock %}
+
+{% block thead %}
+    <tr>
+
+        <th class="text-muted p-0"></th>
+
+        <th class="text-muted p-0">
+            <p class="m-0 text-muted small text-left">NOMBRE</p>
+        </th>
+        <th class="text-muted p-0">
+            <p class="m-0 text-muted small text-left">CORREO</p>
+        </th>
+        <th class="text-muted p-0">
+            <p class="m-0 text-muted small text-left">ROL</p>
+        </th>
+        <th class="text-muted p-0">
+            <p class="m-0 text-muted small text-left">DATABASE</p>
+        </th>
+
+        <th class="text-muted p-0">
+            <p class="m-0 text-muted small text-left">ESTADO</p>
+        </th>
+    </tr>
+{% endblock %}
+
+
+
+{% block tbody %}
+    {% for user in usuarios %}
+        <tr
+            class="sombrain p-0 {% if user.estado == 'INACTIVO' %}tachado text-danger{% endif %}"
+            data-url="{{url( route ~ '_editar', {'slug': user.slug})}}"
+        >
+            <td class="align-middle abrir p-0">
+                <div class="btn-group">
+                    <a
+                        class="dropdown-toggle text-muted p-1"
+                        type="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <i class="fa fa-cogs fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu p-0">
+                        <a
+                            class="dropdown-item py-2"
+                            href="{{url( route ~ '_editar',{'slug':user.slug})}}"
+                        >
+                            <i class="fa fa-pencil-alt"></i> Editar
+                        </a>
+                        <a
+                            class="dropdown-item py-2 text-danger"
+                            onClick="return confirm('¿Seguro que desea eliminar este elemento?')"
+                            href="{{url( route ~ '_eliminar',{'slug':user.slug})}}"
+                        >
+                            <i class="fa fa-trash"></i> Eliminar
+                        </a>
+                    </div>
+                </div>
+            </td>
+
+            <td class="text-left abrir p-1">
+                <p class="m-0">{{user.nombre}} {{user.apellido}}</p>
+            </td>
+
+            <td class="text-left abrir p-1">
+                <p class="m-0">{{user.email}}</p>
+            </td>
+
+            <td class="text-left abrir p-1">
+                <p class="m-0 badge badge-dark lead">{{user.role|replace({'ROLE_':''})}}</p>
+            </td>
+
+            <td class="text-left abrir p-1">
+                {% if user.compania.db is defined %}
+                    <p class="m-0 badge badge-info lead"> <i class="fa fa-database fa-lg"></i> {{user.compania.db|upper}}</p>
+                {% else %}
+                    <p class="m-0 badge badge-muted lead">NO DEFINIDA</p>
+                {% endif %}
+            </td>
+
+            <td class="text-left abrir p-1">
+                <p class="m-0 badge badge-{{user.estado}} lead">{{user.estado}}</p>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

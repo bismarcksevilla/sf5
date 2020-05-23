@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block panel %}
+    <div class="card border-danger rounded-lg">
+        <div class="card-body sombra text-center py-5 ">
+
+            <img src="{{asset('img/standar/bugs.png')}}" class="img-fluid" alt="img of bugs">
+
+            <h1 class="text-danger">Acceso restringido <strong>{{ exception.statuscode }}</strong></h1>
+
+            <p>
+                ¡Es todo lo que sabemos!<br>
+                <strong>Revise su URL o <a href="{{ path('index') }}"> dirijase en la pagina de inicio</a>.</strong>
+            </p>
+        </div>
+    </div>
+{% endblock %}

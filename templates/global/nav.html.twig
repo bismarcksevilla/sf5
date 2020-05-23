@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3 shadow-sm static-top" role="navigation">
+
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{url('index')}}">
+			<p class="text-white m-0">
+				<img style="img-responsive img-" src="{{asset('logo.png')}}" alt="LOGO" height="30">
+			</p>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" >
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+
+	<ul id="navbarContent" class="collapse navbar-collapse">
+		<ul class="navbar-nav">
+
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<li class="nav-item dropdown ">
+					<a
+						class="dropdown-toggle nav-link text-truncate"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+					><i class="fa fa-hamburger"></i> Menu</a>
+					<ul class="dropdown-menu p-0" >
+						{{ render(controller( 'App\\Controller\\User\\MenuController::generar',{'display':'dropdow', 'route': route })) }}
+					</ul>
+				</li>
+			{% endif %}
+
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<li class="nav-item dropdown">
+					<a
+						class="dropdown-toggle nav-link text-truncate"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+					><i class="fa fa-user"></i> {{app.user.nombre|upper}}
+					</a>
+					<ul class="dropdown-menu p-0">
+						{{ render(controller( 'App\\Controller\\User\\MenuController::generar',{'display':'dropdow', 'route': route, 'menu':'user'})) }}
+					</ul>
+				</li>
+			{% else %}
+				<li class="nav-item">
+					<a
+						href="{{url('app_login')}}"
+						class="nav-link text-truncate"
+					><i class="fa fa-user"></i> Login
+					</a>
+				</li>
+			{% endif %}
+
+		</ul>
+	</div>
+</nav>

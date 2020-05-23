@@ -1,0 +1,29 @@
+$tinta:#f34500;
+$verde: #027902;
+$body-color: darken($tinta,80%); //Color textos
+$body-bg: #ddd;
+$enable-rounded:true;
+$spacer: 0.9rem;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-transitions:true;
+$theme-colors: (
+  "primary": $tinta,
+  "secondary": #0066AD,
+  "light": #fff,
+  "info": rgb(0, 110, 255),
+  "dark": #222,
+  "muted": gray,
+  "success": $verde,
+  "warning": orange, //lighten(orange, 5%),
+  "danger": darken(red, 15%),
+
+  "PAGADO": darken($verde, 15%),
+  "ACTIVO": darken($verde, 15%),
+
+  "VENCIDO": darken(red, 15%),
+  "INACTIVO": darken(red, 15%),
+
+  "EMITIDO": darken(orange, 15%),
+  "CREADO": darken(#008cff, 15%),
+);

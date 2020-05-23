@@ -1,0 +1,68 @@
+{% set activado = "" %}
+
+{% if  elemento.items is defined %}
+    {% for k, i in elemento.items %}
+        {# {% if i.route is defined and i.route == (route ~ '_listar')  %} #}
+        {# {% if i.route is defined and (i.route|replace({'_listar':''})) == constant('Namespace\\Classname::CONSTANT_NAME') %} #}
+        {% if i.route is defined and (i.route|replace({'_listar':''})) == route  %}
+            {% set activado = "show active" %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if nivel == 1 %}
+    <div class="accordion" id="{{elementokey}}id">
+        <div class="card">
+            <div class="card-header p-0" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-outline-primary btn-block text-left btn-sm {{activado}} rounded-sm" type="button" data-toggle="collapse" data-target="#{{elementokey}}" aria-expanded="true" aria-controls="{{elementokey}}">
+                        <i class="fa fa-{{elemento.icon}}"></i> {{elementokey|replace({'_':' '})}}
+                    </button>
+                </h2>
+            </div>
+            <div id="{{elementokey}}" class="collapse {{activado}} small" aria-labelledby="headingOne" data-parent="#{{elementokey}}id">
+                <div class="card-body p-0">
+                    {% include "global/menu/desplegar_elemento.html.twig" with {'menu':elemento.items} %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if nivel == 2 %}
+    <div class="accordion" id="{{elementokey}}id">
+        {# <div class="card">
+            <div class="card-header p-0" id="headingOne"> #}
+            <h2 class="mb-0">
+                <button class="btn btn-block btn-link text-left btn-sm m-0 my-1 ml-1 {{activado}}" type="button" data-toggle="collapse" data-target="#{{elementokey}}" aria-expanded="true" aria-controls="{{elementokey}}">
+                    <i class="fa fa-{{elemento.icon}}"></i>{{elementokey|replace({'_':' '})}} <i class="fa fa-arrow-down float-md-right mt-1 fa-xs"></i>
+                </button>
+            </h2>
+            {# </div> #}
+            <div id="{{elementokey}}" class="collapse {{activado}} " aria-labelledby="headingOne" data-parent="#{{elementokey}}id">
+                <div class="card-body p-0">
+                    {% include "global/menu/desplegar_elemento.html.twig" with {'menu':elemento.items} %}
+                </div>
+            </div>
+        {# </div> #}
+    </div>
+{% endif %}
+
+{% if nivel == 3 %}
+    <div class="accordion" id="{{elementokey}}id">
+        <div class="card">
+            <div class="card-header p-0" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-outline-success btn-block text-left btn-sm {{activado}} rounded-sm" type="button" data-toggle="collapse" data-target="#{{elementokey}}" aria-expanded="true" aria-controls="{{elementokey}}">
+                        <i class="fa fa-{{elemento.icon}}"></i> {{nivel}} <small>{{elementokey|replace({'_':' '})}}</small>
+                    </button>
+                </h2>
+            </div>
+            <div id="{{elementokey}}" class="collapse {{activado}} small" aria-labelledby="headingOne" data-parent="#{{elementokey}}id">
+                <div class="card-body p-0">
+                    {% include "global/menu/desplegar_elemento.html.twig" with {'menu':elemento.items} %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

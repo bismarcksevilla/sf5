@@ -1,0 +1,50 @@
+security:
+    encoders:
+        App\Entity\Base\User:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\Base\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: lazy
+            # provider: users_in_memory
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+            logout:
+                path:   app_logout
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+
+    role_hierarchy:
+        ROLE_CONTABILIDAD:  [ROLE_USER]
+        ROLE_TESORERIA:     [ROLE_USER]
+        ROLE_AUXILIAR:      [ROLE_USER]
+        ROLE_COLABORADOR:   [ROLE_CONTABILIDAD, ROLE_TESORERIA, ROLE_AUXILIAR]
+        ROLE_ADMIN:         [ROLE_COLABORADOR]
+        ROLE_SUPER:         [ROLE_ADMIN]
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/w, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/u, roles: ROLE_USER }
+        - { path: ^/c, roles: ROLE_COLABORADOR }
+        - { path: ^/a, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }

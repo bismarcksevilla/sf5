@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Usuario{% endblock %}
+
+{% block main %} 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-transparente sombra mx-auto">
+                <div class="card-body m-0" > 
+                    <h1 class="h1">Información de Usuario</h1>
+
+                    {% if app.user %}
+                        <div class="alert alert-primary">
+                            <p class="m-0"> <i class="fa fa-exclamation-triangle"></i>
+                                Su nivel de acceso es {{app.user.role|replace({'ROLE_':''})}}. 
+                                Para cambiar este rol contacte a un administrador.
+                            </p>
+                        </div>
+                    {% endif %}
+                    
+
+                    {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group form-group-lg">
+                                    <label class="small m-0">Nombre</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-edit"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.nombre) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.nombre) }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="small m-0">Segundo Nombre</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-edit"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.nombre2) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.nombre2) }}</div>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="small m-0">Apellido</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-edit"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.apellido) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.apellido) }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="small m-0">Segundo Apellido</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-edit"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.apellido2) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.apellido2) }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="small m-0">Teléfono</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-phone"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.telefono) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.telefono) }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label class="small m-0">Correo Electrónico</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-mail-bulk"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.email) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.email) }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label class="small m-0">Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-bold bg-white">
+                                                <i class="fa fa-mail-bulk"></i>
+                                            </span>
+                                        </div>
+                                        {{ form_widget(form.password) }}
+                                    </div>
+                                    <div class="form_errors small">{{ form_errors(form.password) }}</div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <button class="btn btn-lg btn-primary" type="submit">Enviar</button>
+
+                    {{ form_end(form) }}
+                </div>
+            </div> 
+        </div> 
+    </div> 
+</div>
+{% endblock %}
